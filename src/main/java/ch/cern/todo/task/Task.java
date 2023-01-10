@@ -6,6 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -15,7 +16,7 @@ public class Task {
 
     @Id
     @GeneratedValue
-    private long taskId;
+    private Long taskId;
 
     @Column(length = 100, nullable = false)
     private String taskName;
@@ -28,6 +29,7 @@ public class Task {
     private Date deadline;
 
     @ManyToOne
+    @JoinColumn(name = "category_id")
     private TaskCategory category;
 
     public Task() {
@@ -40,11 +42,11 @@ public class Task {
         this.category = category;
     }
 
-    public long getTaskId() {
+    public Long getTaskId() {
         return taskId;
     }
 
-    public void setTaskId(long taskId) {
+    public void setTaskId(Long taskId) {
         this.taskId = taskId;
     }
 

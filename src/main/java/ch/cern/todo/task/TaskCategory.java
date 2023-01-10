@@ -9,7 +9,7 @@ import javax.persistence.Id;
 public class TaskCategory {
     @Id
     @GeneratedValue
-    private long categoryId;
+    private Long categoryId;
 
     @Column(unique = true, length = 100, nullable = false)
     private String categoryName;
@@ -25,11 +25,11 @@ public class TaskCategory {
         this.categoryDescription = categoryDescription;
     }
 
-    public long getCategoryId() {
+    public Long getCategoryId() {
         return categoryId;
     }
 
-    public void setCategoryId(long categoryId) {
+    public void setCategoryId(Long categoryId) {
         this.categoryId = categoryId;
     }
 
