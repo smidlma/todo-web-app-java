@@ -65,6 +65,7 @@ public class TaskController {
 
     @DeleteMapping("/{id}")
     void delete(@PathVariable Long id) {
+        repository.findById(id).orElseThrow(() -> new TaskNotFoundException(id));
         repository.deleteById(id);
     }
 }

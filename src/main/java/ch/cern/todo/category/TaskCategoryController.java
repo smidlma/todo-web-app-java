@@ -49,6 +49,7 @@ public class TaskCategoryController {
 
     @DeleteMapping("/{id}")
     void delete(@PathVariable Long id) {
+        repository.findById(id).orElseThrow(() -> new TaskCategoryNotFoundException(id));
         repository.deleteById(id);
     }
 }
