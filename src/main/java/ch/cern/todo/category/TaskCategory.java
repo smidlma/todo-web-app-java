@@ -1,4 +1,4 @@
-package ch.cern.todo.task;
+package ch.cern.todo.category;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

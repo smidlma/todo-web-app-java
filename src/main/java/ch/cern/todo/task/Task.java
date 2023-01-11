@@ -11,6 +11,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import ch.cern.todo.category.TaskCategory;
+
 @Entity
 public class Task {
 
