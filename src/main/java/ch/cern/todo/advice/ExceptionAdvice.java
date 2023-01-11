@@ -1,5 +1,7 @@
 package ch.cern.todo.advice;
 
+import org.hibernate.PropertyValueException;
+import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -23,5 +25,19 @@ public class ExceptionAdvice {
     @ResponseStatus(HttpStatus.NOT_FOUND)
     String categoryNotFoundHandler(TaskCategoryNotFoundException ex) {
         return ex.getMessage();
+    }
+
+    @ResponseBody
+    @ExceptionHandler(PropertyValueException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    String incorectPropertyValueHandler(PropertyValueException ex) {
+        return ex.getMessage();
+    }
+
+    @ResponseBody
+    @ExceptionHandler(ConstraintViolationException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    String constraintViolationHandler(ConstraintViolationException ex) {
+        return "Contraint vilolated: " + ex.getMessage();
     }
 }
