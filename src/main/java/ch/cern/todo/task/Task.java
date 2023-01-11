@@ -8,12 +8,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import ch.cern.todo.category.TaskCategory;
 
 @Entity
+@Table(name = "TASKS")
 public class Task {
 
     @Id
@@ -31,7 +33,7 @@ public class Task {
     private Date deadline;
 
     @ManyToOne
-    @JoinColumn(name = "category_id")
+    @JoinColumn(name = "category_id", nullable = false)
     private TaskCategory category;
 
     public Task() {
